@@ -13,12 +13,13 @@
 
   programs.git = {
     enable = true;
-    userName = "USERNAME";
+    userName = "NAME";
     userEmail = "EMAIL";
   };
 
   programs.alacritty = {
     enable = true;
+    theme = "ayu_dark";
 
     settings = {
       window = {
@@ -27,16 +28,10 @@
       };
 
       font = {
-        size = 9.0;
+        size = 10.0;
         normal.family = "JetBrains Mono";
       };
 
-      colors = {
-        primary = {
-          background = "#1e1e2e";
-          foreground = "#cdd6f4";
-        };
-      };
     };
   };
 
@@ -56,10 +51,6 @@
       name = "Launch Alacritty";
       command = "alacritty";
       binding = "<Super>Return";
-    };
-
-    "org/gnome/desktop/interface" = {
-      "text-scaling-factor" = 0.9;
     };
 
   };
