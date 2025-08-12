@@ -30,7 +30,7 @@ in
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "HOSTNAME";
+  networking.hostName = "Hyrule";
   networking.networkmanager.enable = true;
 
   time.timeZone = "Europe/Amsterdam";
@@ -115,6 +115,9 @@ in
       element-desktop
       libreoffice-fresh
       wkhtmltopdf
+      nodejs_24
+      pnpm_9
+      ruby
       cbqn
       uiua
     ];
@@ -139,11 +142,14 @@ in
     alacritty
     htop
     libgcc
-    gcc
+    gcc15
+    meld
     lua
     zulu23
     killall
     gnomeExtensions.blur-my-shell
+    hplip
+    ungoogled-chromium
     syncthing
     libxkbcommon
     libpkcs11-dnie
@@ -153,8 +159,8 @@ in
 	snes9x
      ]))
 
-    # Python 3.11 packages
-    (python311.withPackages (ps: with ps; [
+    # Python 3.13 packages
+    (python313.withPackages (ps: with ps; [
 	pip
 	numpy
 	requests
@@ -166,6 +172,7 @@ in
 	pandas
 	python-telegram-bot
 	discordpy
+        geopandas
 	python-dotenv
     ]))
 
@@ -173,6 +180,24 @@ in
     haskellPackages.ghc
     haskellPackages.cabal-install
     haskellPackages.hlint
+
+    # LaTeX packages
+    (texlive.combine {
+      inherit (texlive)
+        scheme-medium
+	fira
+	geometry
+	xcolor
+	enumitem
+	xhfill
+	soul
+	titlesec
+	lastpage
+	fancyhdr
+	fontawesome5
+        fontaxes
+	hyperref;
+    })
   ];
 
   fonts.packages = with pkgs; [
@@ -180,6 +205,9 @@ in
     ubuntu-sans-mono
     uiua386
     bqn386
+    noto-fonts-cjk-sans
+    noto-fonts
+    noto-fonts-lgc-plus
   ];
 
   programs.gnupg.agent = {

@@ -19,7 +19,7 @@
 
   programs.alacritty = {
     enable = true;
-    theme = "ayu_dark";
+    theme = "enfocado_dark";
 
     settings = {
       window = {
@@ -37,7 +37,9 @@
 
   programs.bash = {
     enable = true;
-    shellAliases = { "ls" = "ls -lAh --color=auto"; };
+    shellAliases = { "ls" = "ls -lAh --color=auto"; 
+		     "h++" = "g++ -std=c++23 -O3 -Wall -Wextra -Wpedantic -Werror -march=native";
+    };
   };
 
   dconf.settings = {
